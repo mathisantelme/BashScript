@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# author ANTELME Mathis
+
 # DEAFULT VALUES
 DEFAULT_DESTINATION_FILE="data.conf"
 DEFAULT_SOURCE_FILE="dataToAdd.conf"
@@ -32,7 +34,17 @@ function updateFileFromOtherFileContent {
             exit 1
         fi
 
-        echo "[status]: looking for $2 content in $1"
+        # backing up the destination file
+        cp "$DST" "$DST.backup"
+
+        if [ $? -ne 0 ]; # if the copy of the content failed
+        then
+            echo "[warning]: cannot backup $DST"
+        else
+            echo "[status]: backed up $DST as $DST.backup"
+        fi 
+
+        echo "[status]: looking for $SRC content in $DST"
         
         # checking if SRC content is not present in the DST file
         if [ "$(diff --unchanged-line-format= --old-line-format= --new-line-format='%L' "$DST" "$SRC" | wc -l)" -eq "0" ];
@@ -51,7 +63,7 @@ function updateFileFromOtherFileContent {
                 echo "[fatal]: cannot append $SRC content in $DST, quitting"
                 exit 1 # leaving program with error code
             else
-                echo -e "[status]: $SRC content has been appended to $DST - Done"
+                echo "[status]: $SRC content has been appended to $DST - Done"
                 exit 0 # leaving program
             fi 
         fi
