@@ -3,8 +3,8 @@
 # author ANTELME Mathis
 
 # DEAFULT VALUES
-DEFAULT_DESTINATION_FILE="data.conf"
-DEFAULT_SOURCE_FILE="dataToAdd.conf"
+DEFAULT_DESTINATION_FILE="data.conf" # the default value of the destination file
+DEFAULT_SOURCE_FILE="dataToAdd.conf" # the default value of the source file
 
 # this function is used to append the content of an config file to another one
 # only if they are not in the destination file
