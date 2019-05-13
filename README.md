@@ -13,7 +13,7 @@ To install any of the scripts used in this repository, you just need to download
 
 ## **Scripts**
 
-- [Update File](#update-file)
+- [Update File](#update-file) 
 - 
 
 ### **Update File**
@@ -21,6 +21,8 @@ To install any of the scripts used in this repository, you just need to download
 #### *Description*
 
 This script is used to append the content of a source file to a destination file if the content of the source file isn't already present in the destination file.
+
+It's located in **update-file-with-another-file-content**
 
 #### *Configuration*
 
